@@ -15,7 +15,7 @@ It will be used as the demo for the zipco "Lunch and Learn" held on 14th Septemb
 
 This sample project uses EF Core 6 with PostgreSQL provider.
 
-Run the following command to start a locally running PostgreSQL container using Docker. 
+Run the following command to start a locally running PostgreSQL container using Docker.
 
 ```sh
 docker run --name blog-engine-postgres \
@@ -54,4 +54,10 @@ Otherwise, run in console:
 dotnet run --project src/BlogApp.Api
 ```
 
+### Swagger
+
 Swagger UI is available at `/swagger` endpoint
+
+### Postman
+
+Get the Postman collection [here](https://www.getpostman.com/collections/143ffc86c4e09243150d)
