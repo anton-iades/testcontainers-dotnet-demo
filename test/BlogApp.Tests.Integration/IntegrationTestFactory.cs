@@ -45,40 +45,4 @@ public class IntegrationTestFactory<TEntryPoint, TDbContext> : WebApplicationFac
     public Task InitializeAsync() => this.testContainer.StartAsync();
 
     public new Task DisposeAsync() => this.testContainer.DisposeAsync().AsTask();
-
-    public async Task AddAuthorAsync(Author author)
-    {
-        using var scope = this.Services.CreateScope();
-        var scopedServices = scope.ServiceProvider;
-        using var db = scopedServices.GetRequiredService<BlogContext>();
-        db.Add(author);
-        await db.SaveChangesAsync();
-    }
-
-    public async Task AddAuthorsAsync(IEnumerable<Author> authors)
-    {
-        using var scope = this.Services.CreateScope();
-        var scopedServices = scope.ServiceProvider;
-        using var db = scopedServices.GetRequiredService<BlogContext>();
-        db.AddRange(authors);
-        await db.SaveChangesAsync();
-    }
-
-    public async Task DeleteAuthorAsync(Author author)
-    {
-        using var scope = this.Services.CreateScope();
-        var scopedServices = scope.ServiceProvider;
-        using var db = scopedServices.GetRequiredService<BlogContext>();
-        db.Remove(author);
-        await db.SaveChangesAsync();
-    }
-
-    public async Task DeleteAuthorsAsync(IEnumerable<Author> authors)
-    {
-        using var scope = this.Services.CreateScope();
-        var scopedServices = scope.ServiceProvider;
-        using var db = scopedServices.GetRequiredService<BlogContext>();
-        db.RemoveRange(authors);
-        await db.SaveChangesAsync();
-    }
 }
