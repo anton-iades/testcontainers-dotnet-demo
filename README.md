@@ -61,3 +61,15 @@ Swagger UI is available at `/swagger` endpoint
 ### Postman
 
 Get the Postman collection [here](https://www.getpostman.com/collections/143ffc86c4e09243150d)
+
+## Db integration tests with Testcontainers
+
+Just ensure that Docker is running on your machine and then run the test suite:
+
+```sh
+dotnet test
+```
+
+Or by using your IDE's built-in runner.
+
+You will notice that each test class will get its own PostgreSQL instance that is set up and torn down automatically by Testcontainers library.
